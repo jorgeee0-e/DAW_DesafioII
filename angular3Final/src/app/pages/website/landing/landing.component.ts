@@ -16,6 +16,7 @@ export class LandingComponent implements OnInit,AfterViewInit {
   @ViewChild('exModal') exModal!:ElementRef;
 
   productList: any[] = [];
+  productSelected: any = {};
   categoryList: string[] = [];
 
 
@@ -45,6 +46,11 @@ export class LandingComponent implements OnInit,AfterViewInit {
     }, (error) =>{
       console.error("Error fetching categories",error);
     });
+  }
+
+  getProduct(product:any) {
+    console.log(product)
+    this.productSelected = product
   }
 
 

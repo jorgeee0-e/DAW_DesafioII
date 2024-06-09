@@ -59,7 +59,7 @@
                 <div id="btns" class="d-flex justify-content-between ">
                     <button type="button" class="btn btn-secondary btn-category" >{{product.category}} </button>
                     <button type="button" class="btn btn-secondary btn-category" style="display: none;" >{{product.id}} </button>
-                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" data-bs-toggle="modal" data-bs-target="#exModal" data-id="{{product.id}}">Ver producto</a></div>
+                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" data-bs-toggle="modal" data-bs-target="#exModal" data-id="{{product.id}}" (click)="getProduct(product)">Ver producto</a></div>
                 </div>
                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                 </div>
@@ -77,15 +77,15 @@
                 <div class="col mb-5">
                   <div id="card-product" class="card h-100">
                       <!-- Product image-->
-                      <img class="card-img-top bordered-image" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                      <img class="card-img-top bordered-image" [src]="productSelected.image" alt="..." />
                       <!-- Product details-->
                       <div class="card-body px-2 py-1">
                           <div class="text-start">
                               <!-- Product name-->
                               <div class="d-flex justify-content-between ">
-                                  <h5 class="fw-bolder">Popular Item</h5>
+                                  <h5 class="fw-bolder">{{productSelected.title}}</h5>
                               <!-- Product price-->
-                              <div id="precio-prod" class=" fw-bolder text-end"> <h4>$40</h4></div>
+                              <div id="precio-prod" class=" fw-bolder text-end"> <h4>{{productSelected.price}}</h4></div>
                               <!-- Product reviews-->
                           </div>
                               </div>
@@ -96,11 +96,11 @@
                               <div class="bi-star-fill"></div>
                               <div class="bi-star-fill"></div>
                           </div>
-                          <div>Regular text, descripcion product, algo debe ir aca, bla bla bla bla </div>
+                          <div>{{productSelected.description}}</div>
                       </div>
                       <!-- Product actions-->
                       <div id="btns" class="d-flex justify-content-between ">
-                          <button type="button" class="btn btn-secondary btn-category">TAG NAME</button>
+                          <button type="button" class="btn btn-secondary btn-category">{{productSelected.category}}</button>
                           <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
                       </div>
                       <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">

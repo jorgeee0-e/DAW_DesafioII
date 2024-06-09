@@ -52,7 +52,7 @@ export class ProductsComponent implements OnInit {
     this.isSidePanelVisible = true;
   }
   closeSidePanel(){
-  this.isSidePanelVisible = false;
+    this.isSidePanelVisible = false;
   }
   onSave(){
     this.productSrv.saveProduct(this.productObj).subscribe((res:any)=>{
