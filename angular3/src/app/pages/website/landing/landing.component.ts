@@ -51,7 +51,9 @@ export class LandingComponent implements OnInit,AfterViewInit {
   }
   addToCart(productId: number){
     this.cartService.addToCart(productId);
+    console.log(this.cartService.getCart());
   }
+
   getProduct(product:any) {
     console.log(product)
     this.productSelected = product

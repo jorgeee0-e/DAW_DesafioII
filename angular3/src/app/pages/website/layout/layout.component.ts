@@ -28,6 +28,18 @@ export class LayoutComponent {
   }
   getAllCategory(){
   }
+  getProductDetails(id: string){};
+
+  loadCartDetails() {
+    this.cart = this.cartService.getCart();
+
+    // Get product details
+    this.cart.products.forEach((item: any) => {
+      this.prodSrv.getProductDetails(item.productId.toString()).subscribe((productDetails: any) => {
+        productDetails = this.getProductDetails(item.productId);
+      });
+    });
+  }
 
   pagar(){
     Swal.fire({
@@ -46,10 +58,17 @@ export class LayoutComponent {
   uniqueProducts= this.cartService.countUnique();
   cart= this.cartService.getCart();
 
+
   getProduct(product:any) {
     console.log(product)
     this.productSelected = product
   }
+
+  parseToInt(value: string): number {
+    return parseInt(value, 10);
+  }
+
+
 }
 @NgModule({
   imports: [
