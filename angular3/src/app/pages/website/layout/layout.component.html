@@ -62,27 +62,29 @@
                                       </tr>
                                   </thead>
                                   <tbody>
+                                    <ng-container *ngFor="let item of cart.products">
                                       <tr>
-                                          <td>
-                                              <div class="product-img">
-                                                  <div class="img-prdct"><img src="https://image.flaticon.com/icons/png/512/3144/3144467.png"></div>
-                                              </div>
-                                          </td>
-                                          <td>
-                                              <p>Product One</p>
-                                          </td>
-                                          <td>
-                                              <div class="button-container">
+                                        <td>
+                                            <div class="product-img">
+                                                <div class="img-prdct"><img src=></div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <p>Product One</p>
+                                        </td>
+                                        <td>
+                                            <div class="button-container">
 
-                                                  <input type="text" name="qty" min="0" class="qty form-control" value="0"/>
+                                                <input type="text" name="qty" min="0" class="qty form-control" value="0"/>
 
-                                              </div>
-                                          </td>
-                                          <td>
-                                              <input type="text" value="72" class="price form-control" disabled>
-                                          </td>
-                                          <td align="right">$ <span id="amount" class="amount">0</span></td>
-                                      </tr>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" value="72" class="price form-control" disabled>
+                                        </td>
+                                        <td align="right">$ <span id="amount" class="amount">0</span></td>
+                                    </tr>
+                                    </ng-container>
                                   </tbody>
                                   <tfoot>
                                       <tr>

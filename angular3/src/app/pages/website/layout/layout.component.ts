@@ -1,9 +1,10 @@
-import { Component,NgModule } from '@angular/core';
+import { Component,NgModule,ChangeDetectionStrategy  } from '@angular/core';
 import { ProductService } from '../../services/product/product.service';
 import { RouterOutlet,RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CartService } from '../../services/cart/cart.service';
+import { Subscription } from 'rxjs';
 import Swal from 'sweetalert2';
 
 
@@ -12,7 +13,7 @@ import Swal from 'sweetalert2';
   standalone: true,
   imports: [RouterOutlet, RouterLink,CommonModule, FormsModule],
   templateUrl: './layout.component.html',
-  styleUrl: './layout.component.css'
+  styleUrl: './layout.component.css',
 })
 export class LayoutComponent {
   categoryList: string[] = [];
@@ -40,7 +41,10 @@ export class LayoutComponent {
   cancelar(){
     localStorage.clear();
     this.cartService.countUnique();
+    window.location.reload();
   }
+  uniqueProducts= this.cartService.countUnique();
+  cart= this.cartService.getCart();
 
   getProduct(product:any) {
     console.log(product)

@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Injectable({
@@ -6,8 +7,7 @@ import Swal from 'sweetalert2';
 })
 export class CartService {
   private cartKey = 'userCart';
-
-  constructor() { }
+    constructor() { }
 
   getCart() { //obtener el carrito del localStorage si existe, sino, inicializarlo
     const cart = localStorage.getItem(this.cartKey);
@@ -39,6 +39,8 @@ export class CartService {
     })
 
     const items = this.countUnique();
+    window.location.reload();
+
 }
 
 countUnique(){
@@ -46,4 +48,9 @@ countUnique(){
   return cart.products.length;
 }
 
+
 }
+
+
+
+
