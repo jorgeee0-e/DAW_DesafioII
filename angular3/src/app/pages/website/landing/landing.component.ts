@@ -3,6 +3,7 @@ import { AfterViewInit, Component,OnInit,ElementRef, ViewChild, AfterViewChecked
 import { FormsModule } from '@angular/forms';
 import { ProductsComponent } from '../../admin/products/products.component';
 import { ProductService } from '../../services/product/product.service';
+import { CartService } from '../../services/cart/cart.service';
 import * as  bootstrap from 'bootstrap';
 
 @Component({
@@ -20,10 +21,10 @@ export class LandingComponent implements OnInit,AfterViewInit {
   categoryList: string[] = [];
 
 
-  constructor(private prodSrv: ProductService){
+  constructor(private prodSrv: ProductService, private cartService: CartService){
   }
   ngAfterViewInit(): void {
-    const modal = new bootstrap.Modal(this.exModal.nativeElement);
+   /*  const modal = new bootstrap.Modal(this.exModal.nativeElement); */
   }
 
   ngOnInit():void{
@@ -46,13 +47,16 @@ export class LandingComponent implements OnInit,AfterViewInit {
     }, (error) =>{
       console.error("Error fetching categories",error);
     });
+
   }
-
-
+  addToCart(productId: number){
+    this.cartService.addToCart(productId);
+  }
   getProduct(product:any) {
     console.log(product)
     this.productSelected = product
   }
+
 
 
 }

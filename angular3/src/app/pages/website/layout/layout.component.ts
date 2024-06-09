@@ -3,6 +3,8 @@ import { ProductService } from '../../services/product/product.service';
 import { RouterOutlet,RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { CartService } from '../../services/cart/cart.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -17,7 +19,7 @@ export class LayoutComponent {
 
   searchTerm: string = '';
 
-  constructor(private prodSrv: ProductService){
+  constructor(private prodSrv: ProductService,public  cartService: CartService){
     this.prodSrv.getAllCategories().subscribe((res:string[])=>{
       this.categoryList = res;
 
@@ -25,10 +27,23 @@ export class LayoutComponent {
   }
   getAllCategory(){
   }
+
+  pagar(){
+    Swal.fire({
+      icon: 'success',
+      title:'Pago',
+      text:'Pago procesado con exito.'
+    });
+    localStorage.clear();
+    this.cartService.countUnique();
+  }
 }
 @NgModule({
   imports: [
     CommonModule
+  ],
+  providers: [
+    CartService
   ]
 })
 export class LayoutModule {}
