@@ -7,6 +7,7 @@ import { LayoutComponent } from './pages/website/layout/layout.component';
 import { ProductsComponent } from './pages/admin/products/products.component';
 import { CategoriesComponent } from './pages/admin/categories/categories.component';
 import { CategoryProductsComponent } from './pages/website/category-products/category-products.component';
+import { CustomerCartComponent } from './pages/website/customer-cart/customer-cart.component';
 
 export const routes: Routes = [
   {
@@ -39,6 +40,10 @@ export const routes: Routes = [
       {
         path:'category/:category',
         component:CategoryProductsComponent
+      },
+      {
+        path:'cart',
+        component:CustomerCartComponent
       },
 
 

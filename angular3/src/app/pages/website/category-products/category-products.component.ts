@@ -4,6 +4,7 @@ import { ProductService } from '../../services/product/product.service';
 import { CommonModule } from '@angular/common';
 import bootstrap, {Modal} from 'bootstrap';
 import { SharedService } from '../../services/sharedService/shared.service';
+import { CartService } from '../../services/cart/cart.service';
 @Component({
   selector: 'app-category-products',
   standalone: true,
@@ -18,7 +19,7 @@ export class CategoryProductsComponent implements OnInit {
   selectedProduct: any = null;
   productSelected: any = {};
 
-  constructor(private route: ActivatedRoute, private prodSrv: ProductService){}
+  constructor(private route: ActivatedRoute, private prodSrv: ProductService, public cartService: CartService ){}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -38,6 +39,10 @@ export class CategoryProductsComponent implements OnInit {
   }
   searchProductsByCat():void{
     this.getProductsByCat(this.searchTerm);
+  }
+
+  addToCart(productId: number){
+    this.cartService.addToCart(productId);
   }
 
   getProduct(product:any) {

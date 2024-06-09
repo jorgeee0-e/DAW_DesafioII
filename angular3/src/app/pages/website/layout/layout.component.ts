@@ -16,7 +16,7 @@ import Swal from 'sweetalert2';
 })
 export class LayoutComponent {
   categoryList: string[] = [];
-
+  productSelected: any = {};
   searchTerm: string = '';
 
   constructor(private prodSrv: ProductService,public  cartService: CartService){
@@ -34,8 +34,17 @@ export class LayoutComponent {
       title:'Pago',
       text:'Pago procesado con exito.'
     });
+    this.cancelar();
+  }
+
+  cancelar(){
     localStorage.clear();
     this.cartService.countUnique();
+  }
+
+  getProduct(product:any) {
+    console.log(product)
+    this.productSelected = product
   }
 }
 @NgModule({
