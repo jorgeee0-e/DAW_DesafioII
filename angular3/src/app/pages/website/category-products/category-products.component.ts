@@ -16,6 +16,7 @@ export class CategoryProductsComponent implements OnInit {
   productList: any[] = [];
   searchTerm: string = '';
   selectedProduct: any = null;
+  productSelected: any = {};
 
   constructor(private route: ActivatedRoute, private prodSrv: ProductService){}
 
@@ -39,5 +40,9 @@ export class CategoryProductsComponent implements OnInit {
     this.getProductsByCat(this.searchTerm);
   }
 
+  getProduct(product:any) {
+    console.log(product)
+    this.productSelected = product
+  }
 
 }
