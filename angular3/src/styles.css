@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+
+.card-img-top {
+  height: 200px;
+  object-fit: contain;
+  padding: 10px;
+}
+#btns {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+.btn-category {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.6rem;
+  height: 55%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}

@@ -1,0 +1,119 @@
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+<div class="carousel">
+  <div class="carousel-inner">
+      <div class="carousel-item active">
+          <img src="https://t4.ftcdn.net/jpg/03/05/29/67/360_F_305296774_CYiMv2y87U27SoKT2o2OZFWzUzF8JPrL.jpg" class="w-100">
+          <div class="carousel-caption d-none d-md-block">
+
+          <p></p>
+          </div>
+      </div>
+      <div class="carousel-item">
+          <img src="https://png.pngtree.com/background/20230621/original/pngtree-wireless-headphones-in-3d-picture-image_3928511.jpg" alt="" class="w-100">
+          <div class="carousel-caption d-none d-md-block">
+
+          <p></p>
+          </div>
+      </div>
+      <div class="carousel-item">
+          <img src="https://t3.ftcdn.net/jpg/04/86/76/98/360_F_486769878_2Pg9jUn3OjKI7su9E1RrU7rhLATRKj21.jpg" alt="" class="w-100">
+          <div class="carousel-caption d-none d-md-block">
+
+          <p></p>
+          </div>
+      </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<div class="row">
+  <div class="container px-4 px-lg-5 mt-4">
+      <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-2 row-cols-xl-4 justify-content-center">
+        <div class="col mb-5" *ngFor="let product of productList">
+            <div id="card-product" class="card h-100">
+                <!-- Product image-->
+                <img class="card-img-top" [src]="product.image" alt="..." />
+                <!-- Product details-->
+                <div class="card-body px-2 py-1">
+                    <div class="text-start">
+                        <!-- Product name-->
+                        <div class="d-flex justify-content-between ">
+                            <h5 class="fw-bolder">{{product.title}} </h5>
+                        <!-- Product price-->
+                        <div id="precio-prod" class=" fw-bolder text-end"> <h4>{{product.price}} </h4></div>
+                    </div>
+                        </div>
+                </div>
+                <!-- Product actions-->
+                <div id="btns" class="d-flex justify-content-between ">
+                    <button type="button" class="btn btn-secondary btn-category" >{{product.category}} </button>
+                    <button type="button" class="btn btn-secondary btn-category" style="display: none;" >{{product.id}} </button>
+                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" data-bs-toggle="modal" data-bs-target="#exModal" data-id="{{product.id}}">Ver producto</a></div>
+                </div>
+                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                </div>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="exModal" tabindex="-1" aria-labelledby="exModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exModalLabel">Detalles del producto</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="col mb-5">
+                  <div id="card-product" class="card h-100">
+                      <!-- Product image-->
+                      <img class="card-img-top bordered-image" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                      <!-- Product details-->
+                      <div class="card-body px-2 py-1">
+                          <div class="text-start">
+                              <!-- Product name-->
+                              <div class="d-flex justify-content-between ">
+                                  <h5 class="fw-bolder">Popular Item</h5>
+                              <!-- Product price-->
+                              <div id="precio-prod" class=" fw-bolder text-end"> <h4>$40</h4></div>
+                              <!-- Product reviews-->
+                          </div>
+                              </div>
+                          <div class="d-flex justify-content-start small text-warning mb-2">
+                              <div class="bi-star-fill"></div>
+                              <div class="bi-star-fill"></div>
+                              <div class="bi-star-fill"></div>
+                              <div class="bi-star-fill"></div>
+                              <div class="bi-star-fill"></div>
+                          </div>
+                          <div>Regular text, descripcion product, algo debe ir aca, bla bla bla bla </div>
+                      </div>
+                      <!-- Product actions-->
+                      <div id="btns" class="d-flex justify-content-between ">
+                          <button type="button" class="btn btn-secondary btn-category">TAG NAME</button>
+                          <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                      </div>
+                      <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                      </div>
+                  </div>
+              </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
