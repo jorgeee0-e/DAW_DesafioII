@@ -19,6 +19,8 @@ export class LayoutComponent {
   categoryList: string[] = [];
   productSelected: any = {};
   searchTerm: string = '';
+  allProducts: any[] = [];
+
 
   constructor(private prodSrv: ProductService,public  cartService: CartService){
     this.prodSrv.getAllCategories().subscribe((res:string[])=>{
@@ -26,9 +28,23 @@ export class LayoutComponent {
 
     });
   }
+
+  ngOnInit(){
+    this.getAllProducts();
+  }
   getAllCategory(){
   }
-  getProductDetails(id: string){};
+  getProductDetails(id: string){
+    return this.allProducts.find(product => product.id === id);
+
+  };
+
+  getAllProducts() {
+    this.prodSrv.getAllProducts().subscribe((res: any[]) => {
+      this.allProducts = res;
+      console.log(res);
+    });
+  }
 
   loadCartDetails() {
     this.cart = this.cartService.getCart();
@@ -67,6 +83,17 @@ export class LayoutComponent {
   parseToInt(value: string): number {
     return parseInt(value, 10);
   }
+  calculateTotal(): number {
+    let total = 0;
+    this.cart.products.forEach((item: any) => {
+      const product = this.getProductDetails(item.productId);
+      if (product) {
+        total += product.price * item.quantity;
+      }
+    });
+    return  total;
+  }
+
 
 
 }

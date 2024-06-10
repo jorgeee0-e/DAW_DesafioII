@@ -39,7 +39,7 @@
   </nav>
    <!-- Modal -->
         <div class="modal fade" id="exModal3" tabindex="-1" aria-labelledby="exModal3Label" aria-hidden="true">
-          <div class="modal-dialog">
+          <div class="modal-dialog modal-lg">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="exModal3Label">Detalles del pedido</h5>
@@ -54,7 +54,7 @@
                               <table id="myTable" class="table">
                                   <thead>
                                       <tr>
-                                          <th>ProductId</th>
+                                          <th>Id</th>
                                           <th>Name</th>
                                           <th>Qty</th>
                                           <th>Price</th>
@@ -71,28 +71,27 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <p></p>
+                                            <p>{{getProductDetails(item.productId)?.title}}</p>
                                         </td>
                                         <td>
                                             <div class="button-container">
 
-                                                <input type="text" name="qty" min="0" class="qty form-control" value="0"/>
+                                                <input type="text" name="qty" min="0" class="qty form-control text-center" value="{{item.quantity}}" disabled/>
 
                                             </div>
                                         </td>
                                         <td>
-                                            <input type="text" value="72" class="price form-control" disabled>
+                                            <input type="numer" value="{{getProductDetails(item.productId)?.price}}" class="price form-control text-center" name="qty" disabled>
                                         </td>
-                                        <td align="right">$ <span id="amount" class="amount">0</span></td>
+                                        <td align="right">$ <span id="amount" class="amount">{{getProductDetails(item.productId)?.price * item.quantity}}</span></td>
                                     </tr>
                                     </ng-container>
                                   </tbody>
-                                  <tfoot>
-                                      <tr>
-                                          <td colspan="4"></td><td align="right"><strong>TOTAL = $  <span id="total" class="total">0</span></strong></td>
-                                      </tr>
-                                  </tfoot>
                               </table>
+                              <div class="text-end">
+                                <strong> <span id="total" class="total"> TOTAL  {{ calculateTotal().toFixed(2) }} </span></strong>
+
+                              </div>
                           </div>
                       </div>
                   </div>

@@ -3,3 +3,9 @@
   border-color: white
 
 }
+
+.qty, .price  {
+  width: 60px; /* Ajusta el ancho del campo de entrada */
+  height: 30px; /* Ajusta la altura del campo de entrada */
+  padding: 5px; /* Ajusta el relleno si es necesario */
+}
